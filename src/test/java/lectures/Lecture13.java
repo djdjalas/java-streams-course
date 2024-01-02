@@ -9,7 +9,7 @@ public class Lecture13 {
   public void intermediateAndTerminalOperations() throws Exception {
     System.out.println(
         MockData.getCars()
-            .stream()
+            .stream() // filter map are intermediate operation, these are not called without terminal operation
             .filter(car -> {
               System.out.println("filter car " + car);
               return car.getPrice() < 10000;
@@ -22,7 +22,7 @@ public class Lecture13 {
               System.out.println("mapping price " + price);
               return price + (price * .14);
             })
-            .collect(Collectors.toList())
+            .collect(Collectors.toList()) // Terminal operation
     );
   }
 }
